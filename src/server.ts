@@ -5,6 +5,8 @@ import routes from './routes';
 import { errors } from 'celebrate';
 import dotenv from 'dotenv';
 
+const PORT = process.env.PORT || 3333;
+
 const app = express();
 
 app.use('/uploads', express.static(path.resolve(__dirname, '..', 'uploads')));
@@ -20,4 +22,4 @@ app.use(routes);
 
 app.use(errors());
 
-app.listen(process.env.PORT || 3333);
+app.listen(PORT, () => console.log(`Listening on ${PORT}`));
