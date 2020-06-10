@@ -3,15 +3,16 @@ import express from 'express';
 import cors from 'cors';
 import routes from './routes';
 import { errors } from 'celebrate';
+import dotenv from 'dotenv';
 
 const app = express();
 
 app.use('/uploads', express.static(path.resolve(__dirname, '..', 'uploads')));
 
 
-app.use(cors({
+app.use(cors(
     // origin: 'http://'
-}));
+));
 
 app.use(express.json());
 
