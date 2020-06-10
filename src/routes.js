@@ -1,9 +1,9 @@
-import express from 'express';
-import PointsController from './controllers/pointsController';
-import ItemsController from './controllers/itemsController';
-import multer from 'multer';
-import multerConfig from '../src/config/multer';
-import { celebrate, Joi } from 'celebrate';
+const express = require('express');
+const PointsController = require('./controllers/pointsController');
+const ItemsController = require('./controllers/itemsController');
+const multer = require('multer');
+const multerConfig = require('./config/multer');
+const { celebrate, Joi } = require('celebrate');
 
 const pointsController = new PointsController();
 const itemsController = new ItemsController();
@@ -28,4 +28,4 @@ routes.post('/points', uploads.single('image'), celebrate({
 routes.get('/points', pointsController.index);
 routes.get('/points/:id', pointsController.show);
 
-export default routes;
+module.exports = routes;

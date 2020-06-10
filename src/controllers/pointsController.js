@@ -1,9 +1,8 @@
-import { Request, Response } from 'express';
-import knex from '../database/connection';
+const knex = require('../database/connection');
 
 class PointsController {
 
-    async index(req: Request, res: Response) {
+    async index(req, res) {
 
         const { city, uf, items } = req.query;
 
@@ -27,7 +26,7 @@ class PointsController {
         return res.json(serializedPoints);
     }
 
-    async show(req: Request, res: Response) {
+    async show(req, res) {
         const { id } = req.params;
 
         const point = await knex('points').where('id', id).first();
@@ -49,7 +48,7 @@ class PointsController {
         return res.json({ point: serializedPoint, items });
     };
 
-    async create(req: Request, res: Response) {
+    async create(req, res) {
 
         const { name, email, whatssap, latitude, longitude, city, uf, items } = req.body;
 
@@ -70,8 +69,8 @@ class PointsController {
 
         const point_id = insertedIds[0];
 
-        const pointItems = items.split(',').map((item: string) => Number(item.trim()))
-            .map((item_id: number) => {
+        const pointItems = items.split(',').map((item) => Number(item.trim()))
+            .map((item_id) => {
                 return {
                     item_id,
                     point_id
@@ -89,4 +88,4 @@ class PointsController {
     };
 };
 
-export default PointsController;
+module.exports = PointsController;

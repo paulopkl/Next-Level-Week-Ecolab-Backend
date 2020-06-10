@@ -1,9 +1,9 @@
-import path from 'path';
-import express from 'express';
-import cors from 'cors';
-import routes from './routes';
-import { errors } from 'celebrate';
-import dotenv from 'dotenv';
+const path = require('path');
+const express = require('express');
+const cors = require('cors');
+const routes = require('./routes.js');
+const { errors } = require('celebrate');
+const dotenv = require('dotenv');
 
 const PORT = process.env.PORT || 3333;
 

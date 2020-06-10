@@ -1,8 +1,7 @@
-import { Request, Response } from 'express';
-import knex from '../database/connection';
+const knex = require('../database/connection');
 
 class itemsController {
-    async index(req: Request, res: Response) {
+    async index(req, res) {
         const items = await knex('items').select('*');
 
         const serializedItems = items.map(item => {
@@ -17,4 +16,4 @@ class itemsController {
     } 
 }
 
-export default itemsController;
+module.exports = itemsController;
