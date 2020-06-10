@@ -22,4 +22,4 @@ app.use(routes);
 
 app.use(errors());
 
-app.listen(PORT, () => console.log(`Listening on ${PORT}`));
+app.listen(PORT, () => alert(`Listening on ${PORT}`));
