@@ -24,9 +24,7 @@ routes.post('/points', uploads.single('image'), celebrate({
         uf: Joi.string().required().max(2),
         items: Joi.string().required()
     }),
-}, {
-    abortEarly: false,
-}), pointsController.create);
+}, { abortEarly: false }), pointsController.create);
 routes.get('/points', pointsController.index);
 routes.get('/points/:id', pointsController.show);
 
