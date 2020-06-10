@@ -1,4 +1,4 @@
-module.exports = async function up(knex) {
+exports.up = function(knex) {
     return knex.schema.createTable('point_items', table => {
         table.increments('id').primary();
         table.integer('point_id').notNullable().references('id').inTable('points');
@@ -6,6 +6,6 @@ module.exports = async function up(knex) {
     })
 };
 
-module.exports = async function down(knex) {
+exports.down = function(knex) {
     return knex.schema.dropTableIfExists('point_items');
 };
